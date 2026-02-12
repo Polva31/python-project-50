@@ -15,23 +15,17 @@ def main():
     parser.add_argument('first_file')
     parser.add_argument('second_file')
     
-<<<<<<< HEAD
-=======
     parser.add_argument(
         '-f', '--format',
         help='set format of output',
         default='stylish'
     )
     
->>>>>>> 831294c (Add --format option and fix package installation)
     args = parser.parse_args()
     
     # Пока просто заглушка
     print(f"Comparing {args.first_file} and {args.second_file}")
-<<<<<<< HEAD
-=======
     print(f"Output format: {args.format}")
->>>>>>> 831294c (Add --format option and fix package installation)
 
 
 if __name__ == '__main__':

@@ -14,4 +14,8 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
+<<<<<<< HEAD
 packages = ["src/hexlet_code"]
+=======
+packages = ["hexlet_code"]
+>>>>>>> 831294c (Add --format option and fix package installation)
