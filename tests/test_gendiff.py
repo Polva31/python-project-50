@@ -1,8 +1,6 @@
 import json
 import os
 
-import pytest
-
 from gendiff import generate_diff
 
 FIXTURES_PATH = 'tests/test_data'
@@ -13,12 +11,11 @@ def get_fixture_path(filename):
 
 
 def read_file(filename):
-    with open(get_fixture_path(filename), 'r') as f:
+    with open(get_fixture_path(filename)) as f:
         return f.read()
 
 
 def normalize_json(data):
-    import json
     return json.dumps(json.loads(data), sort_keys=True, indent=2)
 
 
