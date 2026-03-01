@@ -23,7 +23,7 @@ jobs:
       run: |
         pip install --upgrade pip
         pip install ruff pytest pytest-cov pyyaml
-        pip install setuptools && pip install -e .
+        pip install setuptools && pip install pyyaml && pip install -e .
     - name: Lint with Ruff
       run: |
         ruff check .

@@ -21,4 +21,4 @@ jobs:
       run: |
         pip install --upgrade pip
         pip install setuptools pytest pytest-cov
-        pip install setuptools && pip install --no-use-pep517 -e .
+        pip install setuptools && pip install pyyaml && pip install -e .
