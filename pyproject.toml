@@ -17,3 +17,13 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 packages = ["gendiff"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["gendiff*"]
+
+[tool.setuptools]
+packages = ["gendiff"]
+
+[tool.setuptools.package-dir]
+gendiff = "gendiff"
