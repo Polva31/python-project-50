@@ -22,7 +22,7 @@ jobs:
     - name: Install dependencies
       run: |
         pip install --upgrade pip
-        pip install ruff pytest pytest-cov
+        pip install setuptools ruff pytest pytest-cov
         pip install -e .
     - name: Lint with Ruff
       run: |

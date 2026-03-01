@@ -20,8 +20,11 @@ jobs:
     - name: Install dependencies
       run: |
         pip install --upgrade pip
-        pip install pytest pytest-cov
+        pip install setuptools pytest pytest-cov
         pip install -e .
+    - name: Verify installation
+      run: |
+        python -c "from gendiff import generate_diff; print('OK')"
     - name: Run tests with coverage
       run: |
         python -m pytest --cov=gendiff --cov-report=xml --cov-report=html
