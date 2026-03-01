@@ -23,7 +23,9 @@ jobs:
       run: |
         pip install --upgrade pip
         pip install ruff pytest pytest-cov pyyaml
-        pip install setuptools && pip install pyyaml && pip install -e .
+        pip install .
+    - name: Verify import
+      run: python -c "from gendiff import generate_diff; print('OK')"
     - name: Lint with Ruff
       run: |
         ruff check .
