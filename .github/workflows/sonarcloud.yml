@@ -1,0 +1,39 @@
+name: SonarCloud
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  sonarcloud:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+    - name: Install dependencies
+      run: |
+        pip install --upgrade pip
+        pip install pytest pytest-cov
+        pip install -e .
+    - name: Run tests with coverage
+      run: |
+        pytest --cov=gendiff --cov-report=xml --cov-report=html
+    - name: SonarCloud Scan
+      uses: SonarSource/sonarcloud-github-action@v2.1.1
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      with:
+        args: >
+          -Dsonar.organization=polva31
+          -Dsonar.projectKey=Polva31_python-project-50
+          -Dsonar.python.coverage.reportPaths=coverage.xml
+          -Dsonar.sources=gendiff
+          -Dsonar.tests=tests
+          -Dsonar.verbose=true
