@@ -12,3 +12,4 @@ venv/
 htmlcov/
 gendiff/
 .idea/
+test_import.py
