@@ -13,3 +13,4 @@ htmlcov/
 gendiff/
 .idea/
 test_import.py
+setup.py
