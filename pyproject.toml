@@ -22,6 +22,7 @@ packages = ["gendiff"]
 where = ["."]
 include = ["gendiff*"]
 
+
 [tool.setuptools]
 packages = ["gendiff"]
 
