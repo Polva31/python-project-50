@@ -1,0 +1,4 @@
+include gendiff/*.py
+include gendiff/**/*.py
+include tests/*.py
+include tests/test_data/*
