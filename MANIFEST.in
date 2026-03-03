@@ -1,4 +1,3 @@
-include gendiff/*.py
-include gendiff/**/*.py
-include tests/*.py
+recursive-include gendiff *.py
+recursive-include tests *.py
 include tests/test_data/*
