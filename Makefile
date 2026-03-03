@@ -1,13 +1,11 @@
 install:
-	@pip install -e .
-
-lint:
-	@flake8 gendiff tests
+	pip install --upgrade pip
+	pip install -e .
 
 test:
-	@python -m pytest
+	pytest -vv
 
-test-coverage:
-	@python -m pytest --cov=gendiff --cov-report=xml
+lint:
+	ruff check .
 
-.PHONY: install lint test test-coverage
+.PHONY: install test lint
