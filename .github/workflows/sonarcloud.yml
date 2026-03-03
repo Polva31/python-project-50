@@ -20,12 +20,20 @@ jobs:
     - name: Install dependencies
       run: |
         pip install --upgrade pip
-        pip install setuptools pytest pytest-cov
-        pip install .
+        pip install setuptools wheel
+        pip install -e .
+    - name: List installed packages
+      run: pip list
+    - name: Check package structure
+      run: |
+        ls -la
+        ls -la gendiff/ || echo "gendiff directory not found"
+        python -c "import sys; print('PYTHONPATH:', sys.path)"
     - name: Verify import
-      run: python -c "from gendiff import generate_diff; print('OK')"
+      run: python -c "from gendiff import generate_diff; print('SUCCESS: gendiff imported correctly')"
     - name: Run tests with coverage
       run: |
+        pip install pytest pytest-cov
         python -m pytest --cov=gendiff --cov-report=xml --cov-report=html
     - name: SonarCloud Scan
       uses: SonarSource/sonarcloud-github-action@v2.1.1
