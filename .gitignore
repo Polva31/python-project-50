@@ -10,8 +10,6 @@ venv/
 .mypy_cache/
 .coverage
 htmlcov/
-gendiff/
 .idea/
 test_import.py
-setup.py
 setup.py
