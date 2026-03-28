@@ -15,8 +15,26 @@ dependencies = [
 [project.scripts]
 gendiff = "gendiff.cli:main"
 
-[tool.setuptools]
-packages = {find = {include = ["gendiff*"]}}
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "ruff>=0.1.0",
+]
 
-[tool.setuptools.package-dir]
-"" = "."
+[tool.setuptools]
+packages = ["gendiff"]
+
+[tool.setuptools.package-data]
+gendiff = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py38"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "C4"]
